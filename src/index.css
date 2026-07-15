@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --gold: #DDAD46;
+    --gold-dark: #c49a30;
+    --gold-light: #e8c46a;
+    --dark: #000000;
+    --dark-alt: #343A40;
+    --light: #F8F9FA;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .text-gold {
+    color: #DDAD46;
+  }
+
+  .bg-gold {
+    background-color: #DDAD46;
+  }
+
+  .border-gold {
+    border-color: #DDAD46;
+  }
+
+  .btn-gold {
+    background-color: #DDAD46;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+  }
+
+  .btn-gold:hover {
+    background-color: #c49a30;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(221, 173, 70, 0.4);
+  }
+
+  .pulse-gold {
+    animation: pulseGold 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGold {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(221, 173, 70, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 15px rgba(221, 173, 70, 0);
+    }
+  }
+
+  .video-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.55) 60%,
+      rgba(0, 0, 0, 0.75) 100%
+    );
+  }
+
+  .whatsapp-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    background-color: #25D366;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+    transition: all 0.3s ease;
+    animation: whatsappPulse 2.5s ease-in-out infinite;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.7);
+  }
+
+  @keyframes whatsappPulse {
+    0%, 100% {
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+    }
+    50% {
+      box-shadow: 0 4px 35px rgba(37, 211, 102, 0.8), 0 0 0 8px rgba(37, 211, 102, 0.15);
+    }
+  }
+
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(221, 173, 70, 0.15);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+  }
+
+  .accordion-content.open {
+    max-height: 300px;
+  }
+
+  .separator-gold {
+    width: 60px;
+    height: 3px;
+    background-color: #DDAD46;
+    margin: 0 auto;
+  }
+
+  .counter-card {
+    border-left: 3px solid #DDAD46;
+  }
+
+  .comparison-card-bad {
+    border-top: 4px solid #ef4444;
+  }
+
+  .comparison-card-good {
+    border-top: 4px solid #DDAD46;
+  }
+
+  .photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+  }
+
+  .carousel-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .carousel-container::-webkit-scrollbar {
+    display: none;
+  }
+}
