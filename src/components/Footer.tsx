@@ -8,21 +8,13 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2 flex flex-col gap-4">
-            {/* Logo text */}
+            {/* Logo */}
             <div>
-              <div className="flex items-baseline gap-2 mb-2">
-                <span
-                  className="font-roboto font-bold text-3xl text-white tracking-wider"
-                >
-                  ZARA
-                </span>
-                <span
-                  className="font-roboto font-medium text-sm tracking-widest uppercase"
-                  style={{ color: '#DDAD46' }}
-                >
-                  ENGENHARIA
-                </span>
-              </div>
+              <img
+                src="/logo-zara.png"
+                alt="Zara Engenharia"
+                className="h-12 w-auto mb-2"
+              />
               <div
                 className="h-px mb-4"
                 style={{ backgroundColor: '#DDAD46', width: '60px' }}
@@ -92,9 +84,7 @@ const Footer: React.FC = () => {
           <p className="font-montserrat text-white/40 text-xs text-center sm:text-left">
             © {new Date().getFullYear()} Zara Engenharia. Todos os direitos reservados.
           </p>
-          <p className="font-montserrat text-white/40 text-xs text-center sm:text-right">
-            CNPJ: 00.000.000/0001-00 &nbsp;|&nbsp; Curitiba — PR
-          </p>
+
         </div>
       </div>
     </footer>

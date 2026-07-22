@@ -14,7 +14,7 @@ const QuemSomosSection: React.FC = () => {
               style={{ border: '2px solid rgba(221,173,70,0.3)' }}
             />
             <img
-              src="https://images.pexels.com/photos/8961031/pexels-photo-8961031.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=700"
+              src="/Thiago Romani e Marilucia Silveira.jpeg"
               alt="Thiago Romani e Marilucia Silveira — Engenheiros Zara Engenharia"
               className="relative rounded-sm w-full object-cover"
               style={{
