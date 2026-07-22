@@ -84,7 +84,17 @@ const Footer: React.FC = () => {
           <p className="font-montserrat text-white/40 text-xs text-center sm:text-left">
             © {new Date().getFullYear()} Zara Engenharia. Todos os direitos reservados.
           </p>
-
+          <p className="font-montserrat text-white/40 text-xs text-center sm:text-right">
+            Site desenvolvido por{' '}
+            <a
+              href="https://2ads.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gold transition-colors"
+            >
+              2ADS | Sistema Automatizado de Vendas
+            </a>
+          </p>
         </div>
       </div>
     </footer>
