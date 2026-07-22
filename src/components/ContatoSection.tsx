@@ -77,17 +77,6 @@ const ContatoSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Big CTA Button */}
-        <div className="text-center mb-14">
-          <button
-            onClick={openWhatsApp}
-            className="pulse-gold btn-gold text-white font-roboto font-bold text-base sm:text-lg px-10 sm:px-14 py-5 sm:py-6 rounded-sm uppercase tracking-wider inline-block"
-            style={{ maxWidth: '480px', width: '100%' }}
-          >
-            Solicitar Minha Triagem Técnica Agora
-          </button>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Form */}
           <div className="lg:col-span-3">
