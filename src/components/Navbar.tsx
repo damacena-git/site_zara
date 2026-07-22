@@ -36,16 +36,12 @@ const Navbar: React.FC = () => {
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="flex items-baseline gap-2">
-          <span className="font-roboto font-bold text-white text-xl tracking-wider">
-            ZARA
-          </span>
-          <span
-            className="font-roboto font-medium text-xs tracking-widest uppercase"
-            style={{ color: '#DDAD46' }}
-          >
-            ENGENHARIA
-          </span>
+        <a href="#hero">
+          <img
+            src="/logo-zara.png"
+            alt="Zara Engenharia"
+            className="h-10 w-auto"
+          />
         </a>
 
         {/* Desktop Nav */}
