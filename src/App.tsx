@@ -11,7 +11,7 @@ import GarantiaSection from './components/GarantiaSection';
 import FAQSection from './components/FAQSection';
 import ContatoSection from './components/ContatoSection';
 import Footer from './components/Footer';
-import WhatsAppFloat from './components/WhatsAppFloat';
+// import WhatsAppFloat from './components/WhatsAppFloat';
 
 const App: React.FC = () => {
   return (
@@ -52,8 +52,8 @@ const App: React.FC = () => {
       {/* Footer */}
       <Footer />
 
-      {/* WhatsApp Floating Button */}
-      <WhatsAppFloat />
+      {/* WhatsApp Floating Button (Oculto) */}
+      {/* <WhatsAppFloat /> */}
     </div>
   );
 };
