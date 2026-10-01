@@ -11,50 +11,57 @@ import GarantiaSection from './components/GarantiaSection';
 import FAQSection from './components/FAQSection';
 import ContatoSection from './components/ContatoSection';
 import Footer from './components/Footer';
+import FormPopup from './components/FormPopup';
+import { FormPopupProvider } from './components/FormPopupContext';
 // import WhatsAppFloat from './components/WhatsAppFloat';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#000000' }}>
-      {/* Sticky Navigation */}
-      <Navbar />
+    <FormPopupProvider>
+      <div className="min-h-screen" style={{ backgroundColor: '#000000' }}>
+        {/* Sticky Navigation */}
+        <Navbar />
 
-      {/* Section 1 — Hero */}
-      <HeroSection />
+        {/* Section 1 — Hero */}
+        <HeroSection />
 
-      {/* Section 2 — Dores (Pain Points) */}
-      <DorasSection />
+        {/* Section 2 — Dores (Pain Points) */}
+        <DorasSection />
 
-      {/* Section 3 — Solução (Benefits) */}
-      <SolucaoSection />
+        {/* Section 3 — Solução (Benefits) */}
+        <SolucaoSection />
 
-      {/* Section 4 — Metodologia */}
-      <MetodologiaSection />
+        {/* Section 4 — Metodologia */}
+        <MetodologiaSection />
 
-      {/* Section 5 — Prova Social */}
-      <ProvaSection />
+        {/* Section 5 — Prova Social */}
+        <ProvaSection />
 
-      {/* Section 6 — Quem Somos */}
-      <QuemSomosSection />
+        {/* Section 6 — Quem Somos */}
+        <QuemSomosSection />
 
-      {/* Section 7 — Comparação */}
-      <ComparacaoSection />
+        {/* Section 7 — Comparação */}
+        <ComparacaoSection />
 
-      {/* Section 8 — Garantia */}
-      <GarantiaSection />
+        {/* Section 8 — Garantia */}
+        <GarantiaSection />
 
-      {/* Section 9 — FAQ */}
-      <FAQSection />
+        {/* Section 9 — FAQ */}
+        <FAQSection />
 
-      {/* Section 10 — Contato / CTA Final */}
-      <ContatoSection />
+        {/* Section 10 — Contato / CTA Final */}
+        <ContatoSection />
 
-      {/* Footer */}
-      <Footer />
+        {/* Footer */}
+        <Footer />
 
-      {/* WhatsApp Floating Button (Oculto) */}
-      {/* <WhatsAppFloat /> */}
-    </div>
+        {/* WhatsApp Floating Button (Oculto) */}
+        {/* <WhatsAppFloat /> */}
+
+        {/* Popup de Formulário Rápido */}
+        <FormPopup />
+      </div>
+    </FormPopupProvider>
   );
 };
 

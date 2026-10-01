@@ -1,5 +1,6 @@
 import React from 'react';
 import { Bookmark, TrendingUp, CheckCircle } from 'lucide-react';
+import { useFormPopup } from './FormPopupContext';
 
 const steps = [
   {
@@ -23,9 +24,7 @@ const steps = [
 ];
 
 const MetodologiaSection: React.FC = () => {
-  const scrollToContact = () => {
-    document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const { openPopup } = useFormPopup();
 
   return (
     <section id="metodologia" className="py-20 sm:py-28 px-6" style={{ backgroundColor: '#343A40' }}>
@@ -94,7 +93,7 @@ const MetodologiaSection: React.FC = () => {
         {/* CTA Button */}
         <div className="text-center">
           <button
-            onClick={scrollToContact}
+            onClick={openPopup}
             className="btn-gold text-white font-roboto font-bold text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-5 rounded-sm uppercase tracking-wider inline-block"
           >
             Quero Blindar Meu Projeto com a Zara

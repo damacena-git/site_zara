@@ -1,5 +1,6 @@
 import React from 'react';
 import { XCircle, CheckCircle2 } from 'lucide-react';
+import { useFormPopup } from './FormPopupContext';
 
 const badPoints = [
   'Você paga barato na mão de obra, mas gasta 30% a mais com desperdício de material.',
@@ -18,9 +19,7 @@ const goodPoints = [
 ];
 
 const ComparacaoSection: React.FC = () => {
-  const scrollToContact = () => {
-    document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const { openPopup } = useFormPopup();
 
   return (
     <section id="comparacao" className="py-20 sm:py-28 px-6" style={{ backgroundColor: '#F8F9FA' }}>
@@ -92,7 +91,7 @@ const ComparacaoSection: React.FC = () => {
             A diferença não está no preço. Está em quem vai pagar o preço da irresponsabilidade.
           </p>
           <button
-            onClick={scrollToContact}
+            onClick={openPopup}
             className="btn-gold text-white font-roboto font-bold text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-5 rounded-sm uppercase tracking-wider"
           >
             Quero o Padrão Zara no Meu Projeto

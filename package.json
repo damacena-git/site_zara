@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:all": "vite build && cross-env BUILD_PAGE=construcao-e-reforma vite build && cross-env BUILD_PAGE=reforma-residencial-curitiba vite build && cross-env BUILD_PAGE=construtora-curitiba vite build && cross-env BUILD_PAGE=orcamento-construcao-civil vite build",
+    "build:page": "cross-env BUILD_PAGE=%npm_config_page% vite build",
     "preview": "vite preview"
   },
   "dependencies": {
