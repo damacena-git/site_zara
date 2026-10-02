@@ -8,7 +8,11 @@ const guarantees = [
   { icon: Shield, text: 'Risco ZERO para o seu CPF e CNPJ' },
 ];
 
-const GarantiaSection: React.FC = () => {
+const GarantiaSection: React.FC<{ variant?: 'comercial' | 'residencial' }> = ({
+  variant = 'comercial',
+}) => {
+  const protectedParty = variant === 'residencial' ? 'para você e seu patrimônio' : 'para o seu CPF e CNPJ';
+
   return (
     <section id="garantia" className="py-12 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#1a1a1a' }}>
       <div className="max-w-4xl mx-auto text-center">
@@ -51,12 +55,13 @@ const GarantiaSection: React.FC = () => {
           <strong className="text-white">100% dentro da lei</strong>. Emitimos ART, seguimos
           rigorosamente as Normas Regulamentadoras (NRs) de segurança do trabalho e documentamos
           todas as etapas em contrato.{' '}
-          <strong className="text-gold">Risco ZERO para o seu CPF e CNPJ.</strong>
+          <strong className="text-gold">Risco ZERO {protectedParty}.</strong>
         </p>
 
         {/* Guarantee Items */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 text-left">
           {guarantees.map((g, i) => {
+            const text = g.icon === Shield ? `Risco ZERO ${protectedParty}` : g.text;
             const Icon = g.icon;
             return (
               <div
@@ -71,7 +76,7 @@ const GarantiaSection: React.FC = () => {
                   <Icon size={20} style={{ color: '#DDAD46' }} />
                 </div>
                 <p className="font-montserrat text-white/80 text-sm leading-relaxed pt-1">
-                  {g.text}
+                  {text}
                 </p>
               </div>
             );

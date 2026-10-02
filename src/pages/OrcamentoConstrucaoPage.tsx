@@ -39,7 +39,7 @@ const OrcamentoConstrucaoPage: React.FC = () => {
               </>
             ),
             ctaText: 'Solicitar Orçamento Gratuito',
-            ctaSubtext: 'Orçamento detalhado em até 48h para projetos em Curitiba',
+            ctaSubtext: 'Orçamento detalhado em até 48h para obras a partir de R$ 50 mil em Curitiba',
             backgroundImage: '/images/hero-orcamento-construcao.jpg',
           }}
         />

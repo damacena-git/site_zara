@@ -2,23 +2,43 @@ import React from 'react';
 import { XCircle, CheckCircle2 } from 'lucide-react';
 import { useFormPopup } from './FormPopupContext';
 
-const badPoints = [
-  'Você paga barato na mão de obra, mas gasta 30% a mais com desperdício de material.',
-  'Paga 50% adiantado e reza para o profissional não sumir.',
-  'Atrasa 2 meses a inauguração da sua loja.',
-  'Sem ART, sem controle, sem responsabilidade técnica.',
-  'Retrabalho constante que corrói seu orçamento silenciosamente.',
-];
+type Variant = 'comercial' | 'residencial';
 
-const goodPoints = [
-  'Você paga o preço justo por uma engenharia técnica com gestão real.',
-  'Tem previsibilidade financeira com pagamento por medição semanal.',
-  'Inaugura na data certa, recuperando seu investimento meses antes.',
-  'ART emitida, NRs seguidas, tudo documentado em contrato.',
-  'Compra de materiais otimizada direto da fábrica com o CNPJ da Zara.',
-];
+const badPoints: Record<Variant, string[]> = {
+  comercial: [
+    'Você paga barato na mão de obra, mas gasta 30% a mais com desperdício de material.',
+    'Paga 50% adiantado e reza para o profissional não sumir.',
+    'Atrasa 2 meses a inauguração da sua loja.',
+    'Sem ART, sem controle, sem responsabilidade técnica.',
+    'Retrabalho constante que corrói seu orçamento silenciosamente.',
+  ],
+  residencial: [
+    'Você paga barato na mão de obra, mas gasta 30% a mais com desperdício de material.',
+    'Paga 50% adiantado e reza para o profissional não sumir.',
+    'A obra se arrasta por meses e a mudança para a casa nova nunca chega.',
+    'Sem ART, sem projeto compatibilizado, sem responsabilidade técnica.',
+    'Acabamento malfeito que precisa ser refeito poucos meses depois.',
+  ],
+};
 
-const ComparacaoSection: React.FC = () => {
+const goodPoints: Record<Variant, string[]> = {
+  comercial: [
+    'Você paga o preço justo por uma engenharia técnica com gestão real.',
+    'Tem previsibilidade financeira com pagamento por medição semanal.',
+    'Inaugura na data certa, recuperando seu investimento meses antes.',
+    'ART emitida, NRs seguidas, tudo documentado em contrato.',
+    'Compra de materiais otimizada direto da fábrica com o CNPJ da Zara.',
+  ],
+  residencial: [
+    'Você paga o preço justo por uma engenharia técnica com gestão real.',
+    'Tem previsibilidade financeira com pagamento por medição semanal.',
+    'Recebe sua casa na data combinada, com relatórios fotográficos semanais.',
+    'ART emitida, projetos compatibilizados, tudo documentado em contrato.',
+    'Compra de materiais otimizada direto da fábrica com o CNPJ da Zara.',
+  ],
+};
+
+const ComparacaoSection: React.FC<{ variant?: Variant }> = ({ variant = 'comercial' }) => {
   const { openPopup } = useFormPopup();
 
   return (
@@ -47,7 +67,7 @@ const ComparacaoSection: React.FC = () => {
               </h3>
             </div>
             <div className="flex flex-col gap-4">
-              {badPoints.map((point, i) => (
+              {badPoints[variant].map((point, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0" />
                   <p className="font-montserrat text-gray-600 text-sm leading-relaxed">
@@ -70,7 +90,7 @@ const ComparacaoSection: React.FC = () => {
               </h3>
             </div>
             <div className="flex flex-col gap-4">
-              {goodPoints.map((point, i) => (
+              {goodPoints[variant].map((point, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <div
                     className="w-2 h-2 rounded-full mt-2 flex-shrink-0"

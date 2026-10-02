@@ -73,7 +73,7 @@ const HeroSection: React.FC = () => {
             Solicitar Orçamento Gratuito
           </button>
           <span className="font-montserrat text-white/60 text-[11px] sm:text-xs italic">
-            Válido apenas para projetos corporativos, industriais e reformas de alto padrão.
+            Obras a partir de R$ 50 mil — projetos corporativos, industriais e residenciais de alto padrão.
           </span>
         </div>
       </div>

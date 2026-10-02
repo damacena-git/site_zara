@@ -41,7 +41,7 @@ const ConstrucaoReformaPage: React.FC = () => {
               </>
             ),
             ctaText: 'Solicitar Orçamento de Construção ou Reforma',
-            ctaSubtext: 'Atendemos Curitiba e Região Metropolitana',
+            ctaSubtext: 'Obras a partir de R$ 50 mil em Curitiba e Região Metropolitana',
             videoSrc:
               'https://videos.pexels.com/video-files/8964731/8964731-uhd_3840_2160_25fps.mp4',
           }}

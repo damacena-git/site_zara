@@ -25,8 +25,8 @@ const ConstrutoraCuritibaPage: React.FC = () => {
             tagline: 'Construtora e Empresa de Engenharia Civil em Curitiba',
             headline: (
               <>
-                <span className="text-gold">Construtora em Curitiba</span> — Engenharia
-                civil de alto padrão para seu projeto.
+                <span className="text-gold">Construtora em Curitiba</span> para obras de
+                alto padrão: você paga só pelo que foi executado.
               </>
             ),
             description: (
@@ -39,8 +39,8 @@ const ConstrutoraCuritibaPage: React.FC = () => {
                 e pagamento por medição.
               </>
             ),
-            ctaText: 'Falar com um Engenheiro',
-            ctaSubtext: 'Atendemos Curitiba, São José dos Pinhais, Colombo e região',
+            ctaText: 'Solicitar Orçamento da Minha Obra',
+            ctaSubtext: 'Obras comerciais, industriais e residenciais a partir de R$ 50 mil',
             videoSrc:
               'https://videos.pexels.com/video-files/8598742/8598742-uhd_3840_2160_30fps.mp4',
           }}

@@ -5,7 +5,7 @@ const faqs = [
   {
     question: 'Vocês fazem pequenas reformas residenciais?',
     answer:
-      'Sim. Nosso foco é exclusivamente voltado para reformas de alto padrão residenciais, lojas, clínicas, escritórios, manutenções industriais e construções/reformas residenciais de alto padrão.',
+      'Não. Nosso foco são obras a partir de R$ 50 mil: reformas e construções residenciais de alto padrão, lojas, clínicas, escritórios e obras industriais. Pequenos reparos e serviços avulsos (pintura isolada, troca de piso, consertos) não fazem parte do nosso escopo.',
   },
   {
     question: 'Eu preciso comprar os materiais?',
@@ -25,7 +25,7 @@ const faqs = [
   {
     question: 'Qual o valor mínimo de projeto para trabalhar com a Zara?',
     answer:
-      'Atendemos projetos corporativos, industriais e reformas de alto padrão. Nosso modelo de gestão é desenhado para obras a partir de R$50.000. Para projetos menores, avaliamos caso a caso na Triagem Técnica.',
+      'Trabalhamos com obras a partir de R$ 50 mil: projetos corporativos, industriais e residenciais de alto padrão. Esse é o porte em que nosso modelo de gestão técnica e pagamento por medição gera mais resultado para o cliente.',
   },
   {
     question: 'Quais garantias tenho de que a obra vai ser entregue no prazo?',

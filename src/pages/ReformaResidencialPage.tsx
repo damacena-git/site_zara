@@ -40,7 +40,7 @@ const ReformaResidencialPage: React.FC = () => {
               </>
             ),
             ctaText: 'Solicitar Orçamento de Reforma',
-            ctaSubtext: 'Reformas residenciais de alto padrão em Curitiba e Região',
+            ctaSubtext: 'Reformas residenciais de alto padrão a partir de R$ 50 mil em Curitiba e Região',
             backgroundImage:
               'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=1920',
           }}
@@ -91,9 +91,9 @@ const ReformaResidencialPage: React.FC = () => {
         />
 
         <MetodologiaSection />
-        <ProvaSection />
-        <ComparacaoSection />
-        <GarantiaSection />
+        <ProvaSection variant="residencial" />
+        <ComparacaoSection variant="residencial" />
+        <GarantiaSection variant="residencial" />
         <FAQSection />
         <ContatoSection />
         <Footer />

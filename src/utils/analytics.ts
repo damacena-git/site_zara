@@ -70,3 +70,23 @@ export const trackLeadConversion = (lead: LeadData) => {
     console.error('[Analytics] Erro ao registrar tracking de lead:', err);
   }
 };
+
+/**
+ * Registra envios fora do perfil (obra abaixo do valor mínimo) sem disparar eventos de conversão
+ */
+export const trackDisqualifiedLead = (
+  formLocation: LeadData['formLocation'],
+  budget: string
+) => {
+  try {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'lead_below_minimum',
+      form_location: formLocation,
+      page_path: window.location.pathname,
+      budget,
+    });
+  } catch (err) {
+    console.error('[Analytics] Erro ao registrar lead fora do perfil:', err);
+  }
+};

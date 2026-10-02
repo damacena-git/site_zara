@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Send, CheckCircle2 } from 'lucide-react';
-import { trackLeadConversion } from '../utils/analytics';
+import { trackLeadConversion, trackDisqualifiedLead } from '../utils/analytics';
 
 const WHATSAPP_NUMBER = '5541984211610';
 const CAREERS_EMAIL = 'contato@zaraengenharia.com.br';
 const JOB_SEEKER_OPTION = 'Procuro emprego / enviar currículo';
+const BELOW_MINIMUM_OPTION = 'Abaixo de R$ 50 mil';
 
 export type LeadFormData = {
   name: string;
@@ -40,6 +41,7 @@ const LeadForm: React.FC<LeadFormProps> = ({
 
   const [submitted, setSubmitted] = useState(false);
   const isJobSeeker = formData.workType === JOB_SEEKER_OPTION;
+  const isBelowMinimum = formData.budget === BELOW_MINIMUM_OPTION;
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -53,11 +55,16 @@ const LeadForm: React.FC<LeadFormProps> = ({
     // Candidatos a vaga não são leads: não registra conversão nem abre o WhatsApp comercial
     if (isJobSeeker) return;
 
-    // 1. Dispara tracking no Google Tag Manager / Google Ads antes de redirecionar
-    trackLeadConversion({
-      ...formData,
-      formLocation,
-    });
+    // 1. Dispara tracking no Google Tag Manager / Google Ads antes de redirecionar.
+    // Obras abaixo do mínimo não contam como conversão, para o Google Ads não otimizar para esse perfil.
+    if (isBelowMinimum) {
+      trackDisqualifiedLead(formLocation, formData.budget);
+    } else {
+      trackLeadConversion({
+        ...formData,
+        formLocation,
+      });
+    }
 
     // 2. Monta mensagem formatada para o WhatsApp
     const msg = encodeURIComponent(
@@ -225,10 +232,17 @@ const LeadForm: React.FC<LeadFormProps> = ({
           <option value="" disabled style={{ color: 'rgba(255,255,255,0.3)' }}>
             Selecione a faixa de investimento
           </option>
-          <option value="Até R$ 100 mil">Até R$ 100 mil</option>
-          <option value="R$ 101 mil a R$ 300 mil">R$ 101 mil a R$ 300 mil</option>
-          <option value="Acima de R$ 300 mil">Acima de R$ 300 mil</option>
+          <option value={BELOW_MINIMUM_OPTION}>{BELOW_MINIMUM_OPTION}</option>
+          <option value="R$ 50 mil a R$ 150 mil">R$ 50 mil a R$ 150 mil</option>
+          <option value="R$ 150 mil a R$ 500 mil">R$ 150 mil a R$ 500 mil</option>
+          <option value="Acima de R$ 500 mil">Acima de R$ 500 mil</option>
         </select>
+        {isBelowMinimum && (
+          <p className="font-montserrat text-gold text-xs leading-relaxed mt-2">
+            Nosso atendimento é focado em obras a partir de R$ 50 mil. Você pode enviar mesmo
+            assim, mas talvez não consigamos atender o seu projeto.
+          </p>
+        )}
       </div>
 
       {/* Observações */}

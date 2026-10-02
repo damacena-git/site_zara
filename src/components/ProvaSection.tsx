@@ -1,33 +1,43 @@
 import React, { useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
-const stats = [
-  { value: '+10', label: 'Anos de experiência no mercado' },
-  { value: '+100', label: 'Projetos entregues com excelência' },
-  { value: '+5000m²', label: 'Entre galpões, clínicas e lojas' },
-  { value: '98%', label: 'Satisfação B2B' },
-];
+type Variant = 'comercial' | 'residencial';
+
+const stats: Record<Variant, { value: string; label: string }[]> = {
+  comercial: [
+    { value: '+10', label: 'Anos de experiência no mercado' },
+    { value: '+100', label: 'Projetos entregues com excelência' },
+    { value: '+5000m²', label: 'Entre galpões, clínicas e lojas' },
+    { value: '98%', label: 'Satisfação B2B' },
+  ],
+  residencial: [
+    { value: '+10', label: 'Anos de experiência no mercado' },
+    { value: '+100', label: 'Projetos entregues com excelência' },
+    { value: '100%', label: 'Das obras com ART emitida' },
+    { value: 'Semanal', label: 'Relatório fotográfico da sua obra' },
+  ],
+};
 
 const projectPhotos = [
   {
     url: 'https://images.pexels.com/photos/13068378/pexels-photo-13068378.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200',
-    label: 'Loja de cosméticos — Curitiba, PR',
+    label: 'Ambiente comercial'
   },
   {
     url: 'https://images.pexels.com/photos/8146200/pexels-photo-8146200.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200',
-    label: 'Corredor comercial — Alto padrão',
+    label: 'Corredor comercial de alto padrão'
   },
   {
     url: 'https://images.pexels.com/photos/13068374/pexels-photo-13068374.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200',
-    label: 'Ponto comercial — Finalização premium',
+    label: 'Acabamento premium'
   },
   {
     url: 'https://images.pexels.com/photos/7028110/pexels-photo-7028110.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200',
-    label: 'Espaço executivo — Entregue no prazo',
+    label: 'Espaço executivo'
   },
   {
     url: 'https://images.pexels.com/photos/27452443/pexels-photo-27452443.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200',
-    label: 'Shopping corporativo — Reforma completa',
+    label: 'Ambiente corporativo'
   },
 ];
 
@@ -41,12 +51,13 @@ const testimonials = [
   {
     name: 'Carla F.',
     role: 'Diretora — Grupo Varejista Sul',
-    text: 'Finalmente uma empresa que cumpre o que promete. Inauguramos 45 dias antes do que eu esperava. A Thiago e a Mari foram presentes em cada detalhe. Meu retorno sobre o investimento veio antes do previsto.',
+    text: 'Finalmente uma empresa que cumpre o que promete. Inauguramos 45 dias antes do que eu esperava. O Thiago e a Mari estiveram presentes em cada detalhe. Meu retorno sobre o investimento veio antes do previsto.',
     stars: 5,
   },
 ];
 
-const ProvaSection: React.FC = () => {
+const ProvaSection: React.FC<{ variant?: Variant }> = ({ variant = 'comercial' }) => {
+  const isResidencial = variant === 'residencial';
   const carouselRef = useRef<HTMLDivElement>(null);
   const [currentPhoto, setCurrentPhoto] = useState(0);
 
@@ -80,7 +91,7 @@ const ProvaSection: React.FC = () => {
 
         {/* Stats Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6 mb-12 sm:mb-20">
-          {stats.map((stat, index) => (
+          {stats[variant].map((stat, index) => (
             <div
               key={index}
               className="counter-card bg-black text-white rounded-sm p-6 sm:p-8 flex flex-col gap-2"
@@ -98,7 +109,8 @@ const ProvaSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Photo Carousel */}
+        {/* Photo Carousel (imagens comerciais ilustrativas — oculto na versão residencial) */}
+        {!isResidencial && (
         <div className="relative mb-16">
           <div className="overflow-hidden rounded-sm">
             <div
@@ -150,9 +162,13 @@ const ProvaSection: React.FC = () => {
               />
             ))}
           </div>
+          <p className="font-montserrat text-gray-400 text-[11px] text-center mt-2">Imagens ilustrativas</p>
         </div>
 
-        {/* Testimonials */}
+        )}
+
+        {/* Testimonials (clientes B2B — ocultos na versão residencial até termos depoimentos residenciais) */}
+        {!isResidencial && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {testimonials.map((t, i) => (
             <div
@@ -176,6 +192,7 @@ const ProvaSection: React.FC = () => {
             </div>
           ))}
         </div>
+        )}
       </div>
     </section>
   );
