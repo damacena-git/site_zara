@@ -10,6 +10,7 @@ import FAQSection from '../components/FAQSection';
 import ContatoSection from '../components/ContatoSection';
 import Footer from '../components/Footer';
 import FormPopup from '../components/FormPopup';
+import WhatsAppFloat from '../components/WhatsAppFloat';
 import { FormPopupProvider } from '../components/FormPopupContext';
 import { Building2, Wrench, CalendarCheck } from 'lucide-react';
 
@@ -94,6 +95,7 @@ const ConstrucaoReformaPage: React.FC = () => {
         <FAQSection />
         <ContatoSection />
         <Footer />
+        <WhatsAppFloat />
         <FormPopup />
       </div>
     </FormPopupProvider>

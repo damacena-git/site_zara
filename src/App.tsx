@@ -13,7 +13,7 @@ import ContatoSection from './components/ContatoSection';
 import Footer from './components/Footer';
 import FormPopup from './components/FormPopup';
 import { FormPopupProvider } from './components/FormPopupContext';
-// import WhatsAppFloat from './components/WhatsAppFloat';
+import WhatsAppFloat from './components/WhatsAppFloat';
 
 const App: React.FC = () => {
   return (
@@ -55,8 +55,8 @@ const App: React.FC = () => {
         {/* Footer */}
         <Footer />
 
-        {/* WhatsApp Floating Button (Oculto) */}
-        {/* <WhatsAppFloat /> */}
+        {/* WhatsApp Floating Button que abre o FormPopup */}
+        <WhatsAppFloat />
 
         {/* Popup de Formulário Rápido */}
         <FormPopup />
