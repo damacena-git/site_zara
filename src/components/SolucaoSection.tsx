@@ -24,23 +24,23 @@ const benefits = [
 
 const SolucaoSection: React.FC = () => {
   return (
-    <section id="solucao" className="py-20 sm:py-28 px-6" style={{ backgroundColor: '#F8F9FA' }}>
+    <section id="solucao" className="py-12 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#F8F9FA' }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="separator-gold mb-6 mx-auto" />
-          <h2 className="font-roboto font-bold text-black text-3xl sm:text-4xl md:text-5xl leading-tight mb-5">
+        <div className="text-center mb-10 sm:mb-16">
+          <div className="separator-gold mb-4 sm:mb-6 mx-auto" />
+          <h2 className="font-roboto font-bold text-black text-2xl sm:text-4xl md:text-5xl leading-tight mb-4 sm:mb-5">
             Conheça o{' '}
             <span style={{ color: '#DDAD46' }}>Padrão Zara</span> de Engenharia.
           </h2>
-          <p className="font-montserrat text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="font-montserrat text-gray-600 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Nós assumimos o risco da gestão para que a sua{' '}
             <strong className="text-black">única preocupação</strong> seja o sucesso do seu negócio.
           </p>
         </div>
 
         {/* Benefit Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (

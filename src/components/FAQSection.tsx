@@ -42,12 +42,12 @@ const FAQSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 sm:py-28 px-6" style={{ backgroundColor: '#ffffff' }}>
+    <section id="faq" className="py-12 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#ffffff' }}>
       <div className="max-w-3xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-14">
-          <div className="separator-gold mb-6 mx-auto" />
-          <h2 className="font-roboto font-bold text-black text-3xl sm:text-4xl md:text-5xl leading-tight">
+        <div className="text-center mb-10 sm:mb-14">
+          <div className="separator-gold mb-4 sm:mb-6 mx-auto" />
+          <h2 className="font-roboto font-bold text-black text-2xl sm:text-4xl md:text-5xl leading-tight">
             Dúvidas{' '}
             <span style={{ color: '#DDAD46' }}>Frequentes</span>
           </h2>

@@ -67,19 +67,19 @@ const ProvaSection: React.FC = () => {
   };
 
   return (
-    <section id="numeros" className="py-20 sm:py-28 px-6" style={{ backgroundColor: '#ffffff' }}>
+    <section id="numeros" className="py-12 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#ffffff' }}>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="separator-gold mb-6 mx-auto" />
-          <h2 className="font-roboto font-bold text-black text-3xl sm:text-4xl md:text-5xl leading-tight">
+        <div className="text-center mb-10 sm:mb-16">
+          <div className="separator-gold mb-4 sm:mb-6 mx-auto" />
+          <h2 className="font-roboto font-bold text-black text-2xl sm:text-4xl md:text-5xl leading-tight">
             Números que constroem{' '}
             <span style={{ color: '#DDAD46' }}>confiança</span>.
           </h2>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6 mb-12 sm:mb-20">
           {stats.map((stat, index) => (
             <div
               key={index}

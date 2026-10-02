@@ -10,7 +10,7 @@ const guarantees = [
 
 const GarantiaSection: React.FC = () => {
   return (
-    <section id="garantia" className="py-20 sm:py-28 px-6" style={{ backgroundColor: '#1a1a1a' }}>
+    <section id="garantia" className="py-12 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#1a1a1a' }}>
       <div className="max-w-4xl mx-auto text-center">
         {/* Shield Icon */}
         <div className="flex justify-center mb-8">

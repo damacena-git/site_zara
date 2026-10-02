@@ -9,16 +9,16 @@ const WHATSAPP_MESSAGE = encodeURIComponent(
 
 const ContatoSection: React.FC = () => {
   return (
-    <section id="contato" className="py-20 sm:py-28 px-6" style={{ backgroundColor: '#000000' }}>
+    <section id="contato" className="py-12 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#000000' }}>
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-14">
-          <div className="separator-gold mb-6 mx-auto" />
-          <h2 className="font-roboto font-bold text-white text-3xl sm:text-4xl md:text-5xl leading-tight mb-5">
+        <div className="text-center mb-10 sm:mb-14">
+          <div className="separator-gold mb-4 sm:mb-6 mx-auto" />
+          <h2 className="font-roboto font-bold text-white text-2xl sm:text-4xl md:text-5xl leading-tight mb-4 sm:mb-5">
             Não deixe o futuro da sua empresa nas{' '}
             <span className="text-gold">mãos de amadores</span>.
           </h2>
-          <p className="font-montserrat text-white/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="font-montserrat text-white/70 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Preencha o formulário rápido abaixo ou chame no WhatsApp.{' '}
             <strong className="text-white">Nossa equipe fará sua Triagem Técnica em poucas horas.</strong>
           </p>

@@ -21,16 +21,16 @@ const pains = [
 
 const DorasSection: React.FC = () => {
   return (
-    <section id="dores" className="py-20 sm:py-28 px-6" style={{ backgroundColor: '#000000' }}>
+    <section id="dores" className="py-12 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#000000' }}>
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="separator-gold mb-6 mx-auto" />
-          <h2 className="font-roboto font-bold text-white text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
+        <div className="text-center mb-10 sm:mb-16">
+          <div className="separator-gold mb-4 sm:mb-6 mx-auto" />
+          <h2 className="font-roboto font-bold text-white text-2xl sm:text-4xl md:text-5xl leading-tight mb-4 sm:mb-6">
             Você não deveria ser o{' '}
             <span className="text-gold">"babá"</span> da sua própria obra.
           </h2>
-          <p className="font-montserrat text-white/75 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="font-montserrat text-white/75 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Sabemos que você é um empresário ou gestor ocupado. E sabemos{' '}
             <strong className="text-white">exatamente o que tira o seu sono</strong> quando o
             assunto é reforma:
@@ -38,7 +38,7 @@ const DorasSection: React.FC = () => {
         </div>
 
         {/* Pain Points */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 mb-10 sm:mb-16">
           {pains.map((pain, index) => {
             const Icon = pain.icon;
             return (

@@ -18,7 +18,10 @@ const LandingHero: React.FC<{ config: LandingHeroConfig }> = ({ config }) => {
   const { openPopup } = useFormPopup();
 
   return (
-    <section id="hero" className="relative w-full overflow-hidden" style={{ height: '100vh', minHeight: '600px' }}>
+    <section
+      id="hero"
+      className="relative w-full overflow-hidden min-h-[100dvh] sm:h-screen sm:min-h-[600px] flex flex-col justify-center"
+    >
       {/* Background */}
       {config.backgroundImage ? (
         <img
@@ -49,39 +52,39 @@ const LandingHero: React.FC<{ config: LandingHeroConfig }> = ({ config }) => {
       <div className="absolute bottom-0 left-0 right-0 h-1" style={{ backgroundColor: '#DDAD46' }} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full px-5 sm:px-6 text-center pt-8 pb-14 sm:py-0 my-auto">
         {/* Tagline */}
         <p
-          className="text-gold font-roboto font-medium tracking-widest uppercase text-xs sm:text-sm mb-4 sm:mb-6"
-          style={{ letterSpacing: '0.2em' }}
+          className="text-gold font-roboto font-medium tracking-widest uppercase text-[11px] sm:text-sm mb-3 sm:mb-6"
+          style={{ letterSpacing: '0.18em' }}
         >
           {config.tagline}
         </p>
 
         {/* Headline */}
         <h1
-          className="font-roboto font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl leading-tight mb-6 sm:mb-8"
-          style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}
+          className="font-roboto font-bold text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl max-w-4xl leading-snug sm:leading-tight mb-4 sm:mb-8"
+          style={{ textShadow: '0 2px 20px rgba(0,0,0,0.6)' }}
         >
           {config.headline}
         </h1>
 
         {/* Brief Intro */}
-        <p className="font-montserrat text-white/90 text-base sm:text-lg max-w-2xl leading-relaxed mb-8 sm:mb-10">
+        <p className="font-montserrat text-white/90 text-sm sm:text-lg max-w-2xl leading-relaxed mb-6 sm:mb-10">
           {config.description}
         </p>
 
         {/* CTA Button */}
-        <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
           <button
             onClick={openPopup}
-            className="btn-gold text-white font-roboto font-bold text-sm sm:text-base px-8 sm:px-10 py-4 sm:py-5 rounded-sm uppercase tracking-wider shadow-2xl pulse-gold"
-            style={{ minWidth: '280px' }}
+            className="btn-gold text-white font-roboto font-bold text-xs sm:text-base px-6 sm:px-10 py-3.5 sm:py-5 rounded-sm uppercase tracking-wider shadow-2xl pulse-gold w-full sm:w-auto cursor-pointer"
+            style={{ maxWidth: '360px' }}
           >
             {config.ctaText}
           </button>
           {config.ctaSubtext && (
-            <span className="font-montserrat text-white/60 text-xs italic">
+            <span className="font-montserrat text-white/60 text-[11px] sm:text-xs italic">
               {config.ctaSubtext}
             </span>
           )}
@@ -89,8 +92,8 @@ const LandingHero: React.FC<{ config: LandingHeroConfig }> = ({ config }) => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-        <ChevronDown className="text-gold" size={28} />
+      <div className="absolute bottom-3 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+        <ChevronDown className="text-gold w-5 h-5 sm:w-7 sm:h-7" />
       </div>
     </section>
   );

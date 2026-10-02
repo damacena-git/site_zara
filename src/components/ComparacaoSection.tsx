@@ -22,12 +22,12 @@ const ComparacaoSection: React.FC = () => {
   const { openPopup } = useFormPopup();
 
   return (
-    <section id="comparacao" className="py-20 sm:py-28 px-6" style={{ backgroundColor: '#F8F9FA' }}>
+    <section id="comparacao" className="py-12 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#F8F9FA' }}>
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-14">
-          <div className="separator-gold mb-6 mx-auto" />
-          <h2 className="font-roboto font-bold text-black text-3xl sm:text-4xl md:text-5xl leading-tight">
+        <div className="text-center mb-10 sm:mb-14">
+          <div className="separator-gold mb-4 sm:mb-6 mx-auto" />
+          <h2 className="font-roboto font-bold text-black text-2xl sm:text-4xl md:text-5xl leading-tight">
             Por que o orçamento mais barato{' '}
             <span style={{ color: '#DDAD46' }}>sempre custa o dobro</span>?
           </h2>

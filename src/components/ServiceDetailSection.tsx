@@ -21,21 +21,21 @@ const ServiceDetailSection: React.FC<{ config: ServiceDetailConfig }> = ({ confi
   const { openPopup } = useFormPopup();
 
   return (
-    <section className="py-20 sm:py-28 px-6" style={{ backgroundColor: '#000000' }}>
+    <section className="py-12 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#000000' }}>
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="separator-gold mb-6 mx-auto" />
-          <h2 className="font-roboto font-bold text-white text-3xl sm:text-4xl md:text-5xl leading-tight mb-5">
+        <div className="text-center mb-10 sm:mb-16">
+          <div className="separator-gold mb-4 sm:mb-6 mx-auto" />
+          <h2 className="font-roboto font-bold text-white text-2xl sm:text-4xl md:text-5xl leading-tight mb-4 sm:mb-5">
             {config.sectionTitle}
           </h2>
-          <p className="font-montserrat text-white/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="font-montserrat text-white/70 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
             {config.sectionSubtitle}
           </p>
         </div>
 
         {/* Highlight Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 mb-10 sm:mb-14">
           {config.highlights.map((item, index) => {
             const Icon = item.icon;
             return (

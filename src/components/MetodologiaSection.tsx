@@ -27,18 +27,18 @@ const MetodologiaSection: React.FC = () => {
   const { openPopup } = useFormPopup();
 
   return (
-    <section id="metodologia" className="py-20 sm:py-28 px-6" style={{ backgroundColor: '#343A40' }}>
+    <section id="metodologia" className="py-12 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#343A40' }}>
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="separator-gold mb-6 mx-auto" />
-          <h2 className="font-roboto font-bold text-white text-3xl sm:text-4xl md:text-5xl leading-tight mb-5">
+        <div className="text-center mb-10 sm:mb-16">
+          <div className="separator-gold mb-4 sm:mb-6 mx-auto" />
+          <h2 className="font-roboto font-bold text-white text-2xl sm:text-4xl md:text-5xl leading-tight mb-4 sm:mb-5">
             Como funciona o nosso{' '}
             <span className="text-gold">modelo de pagamento</span>
             <br />
-            <span className="text-2xl sm:text-3xl opacity-80">(O Fim do Risco)</span>
+            <span className="text-xl sm:text-3xl opacity-80">(O Fim do Risco)</span>
           </h2>
-          <p className="font-montserrat text-white/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="font-montserrat text-white/70 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Nós revolucionamos a forma de cobrar na construção civil para{' '}
             <strong className="text-white">proteger o seu patrimônio</strong>.
           </p>
