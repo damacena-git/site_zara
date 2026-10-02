@@ -20,7 +20,7 @@ const LandingHero: React.FC<{ config: LandingHeroConfig }> = ({ config }) => {
   return (
     <section
       id="hero"
-      className="relative w-full overflow-hidden min-h-[100dvh] sm:h-screen sm:min-h-[600px] flex flex-col justify-center"
+      className="relative w-full overflow-hidden sm:h-screen sm:min-h-[600px] flex flex-col justify-center"
     >
       {/* Background */}
       {config.backgroundImage ? (
@@ -52,7 +52,7 @@ const LandingHero: React.FC<{ config: LandingHeroConfig }> = ({ config }) => {
       <div className="absolute bottom-0 left-0 right-0 h-1" style={{ backgroundColor: '#DDAD46' }} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center w-full px-5 sm:px-6 text-center pt-8 pb-14 sm:py-0 my-auto">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full px-5 sm:px-6 text-center pt-24 pb-12 sm:py-0 sm:my-auto">
         {/* Tagline */}
         <p
           className="text-gold font-roboto font-medium tracking-widest uppercase text-[11px] sm:text-sm mb-3 sm:mb-6"
