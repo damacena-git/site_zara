@@ -3,16 +3,15 @@ import { Send, CheckCircle2 } from 'lucide-react';
 import { trackLeadConversion } from '../utils/analytics';
 
 const WHATSAPP_NUMBER = '5541984211610';
+const CAREERS_EMAIL = 'contato@zaraengenharia.com.br';
+const JOB_SEEKER_OPTION = 'Procuro emprego / enviar currículo';
 
 export type LeadFormData = {
   name: string;
-  company: string;
   phone: string;
   email: string;
   workType: string;
   otherWorkSpec: string;
-  hasProject: string;
-  size: string;
   budget: string;
   message: string;
 };
@@ -31,18 +30,16 @@ const LeadForm: React.FC<LeadFormProps> = ({
 }) => {
   const [formData, setFormData] = useState<LeadFormData>({
     name: '',
-    company: '',
     phone: '',
     email: '',
     workType: '',
     otherWorkSpec: '',
-    hasProject: '',
-    size: '',
     budget: '',
     message: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const isJobSeeker = formData.workType === JOB_SEEKER_OPTION;
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -52,6 +49,9 @@ const LeadForm: React.FC<LeadFormProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Candidatos a vaga não são leads: não registra conversão nem abre o WhatsApp comercial
+    if (isJobSeeker) return;
 
     // 1. Dispara tracking no Google Tag Manager / Google Ads antes de redirecionar
     trackLeadConversion({
@@ -63,12 +63,9 @@ const LeadForm: React.FC<LeadFormProps> = ({
     const msg = encodeURIComponent(
       `Olá! Vim pelo site da Zara Engenharia e gostaria de agendar uma Triagem Técnica.\n\n` +
       `*Nome:* ${formData.name}\n` +
-      (formData.company ? `*Empresa:* ${formData.company}\n` : '') +
       `*Telefone:* ${formData.phone}\n` +
       (formData.email ? `*E-mail:* ${formData.email}\n` : '') +
       `*Tipo de Obra:* ${formData.workType}${formData.workType === 'Outros' && formData.otherWorkSpec ? ` - ${formData.otherWorkSpec}` : ''}\n` +
-      `*Projeto Aprovado:* ${formData.hasProject}\n` +
-      `*Tamanho (m²):* ${formData.size}\n` +
       `*Investimento:* ${formData.budget}\n` +
       (formData.message ? `*Detalhes:* ${formData.message}` : '')
     );
@@ -114,35 +111,20 @@ const LeadForm: React.FC<LeadFormProps> = ({
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-5 text-left">
-      {/* Nome & Empresa */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label className="font-montserrat text-white/70 text-xs uppercase tracking-wider block mb-1.5 font-medium">
-            Nome Completo *
-          </label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            placeholder="Seu nome"
-            className="w-full bg-white/5 border border-white/15 rounded-sm px-4 py-3 text-white font-montserrat text-sm focus:outline-none focus:border-gold transition-colors placeholder-white/30"
-          />
-        </div>
-        <div>
-          <label className="font-montserrat text-white/70 text-xs uppercase tracking-wider block mb-1.5 font-medium">
-            Empresa
-          </label>
-          <input
-            type="text"
-            name="company"
-            value={formData.company}
-            onChange={handleChange}
-            placeholder="Nome da empresa"
-            className="w-full bg-white/5 border border-white/15 rounded-sm px-4 py-3 text-white font-montserrat text-sm focus:outline-none focus:border-gold transition-colors placeholder-white/30"
-          />
-        </div>
+      {/* Nome */}
+      <div>
+        <label className="font-montserrat text-white/70 text-xs uppercase tracking-wider block mb-1.5 font-medium">
+          Nome Completo *
+        </label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          placeholder="Seu nome"
+          className="w-full bg-white/5 border border-white/15 rounded-sm px-4 py-3 text-white font-montserrat text-sm focus:outline-none focus:border-gold transition-colors placeholder-white/30"
+        />
       </div>
 
       {/* WhatsApp & E-mail */}
@@ -198,6 +180,7 @@ const LeadForm: React.FC<LeadFormProps> = ({
           <option value="Manutenção">Manutenção</option>
           <option value="Ampliação de área">Ampliação de área</option>
           <option value="Outros">Outros</option>
+          <option value={JOB_SEEKER_OPTION}>{JOB_SEEKER_OPTION}</option>
         </select>
         {formData.workType === 'Outros' && (
           <input
@@ -211,53 +194,21 @@ const LeadForm: React.FC<LeadFormProps> = ({
         )}
       </div>
 
-      {/* Projeto Aprovado */}
-      <div>
-        <label className="font-montserrat text-white/70 text-xs uppercase tracking-wider block mb-1.5 font-medium">
-          Você já possui um projeto arquitetônico ou executivo aprovado? *
-        </label>
-        <select
-          name="hasProject"
-          value={formData.hasProject}
-          onChange={handleChange}
-          required
-          className="w-full bg-white/5 border border-white/15 rounded-sm px-4 py-3 text-white font-montserrat text-sm focus:outline-none focus:border-gold transition-colors"
-          style={{ backgroundColor: '#0a0a0a' }}
+      {isJobSeeker ? (
+        <div
+          className="rounded-sm p-5 text-center"
+          style={{ border: '1px solid rgba(221,173,70,0.4)', backgroundColor: 'rgba(221,173,70,0.06)' }}
         >
-          <option value="" disabled style={{ color: 'rgba(255,255,255,0.3)' }}>
-            Selecione uma opção
-          </option>
-          <option value="Sim, já tenho o projeto em mãos.">
-            Sim, já tenho o projeto em mãos.
-          </option>
-          <option value="Não, ainda preciso de ajuda com o projeto.">
-            Não, ainda preciso de ajuda com o projeto.
-          </option>
-        </select>
-      </div>
-
-      {/* Tamanho m² */}
-      <div>
-        <label className="font-montserrat text-white/70 text-xs uppercase tracking-wider block mb-1.5 font-medium">
-          Qual é a previsão de tamanho (em metros quadrados) da sua obra? *
-        </label>
-        <select
-          name="size"
-          value={formData.size}
-          onChange={handleChange}
-          required
-          className="w-full bg-white/5 border border-white/15 rounded-sm px-4 py-3 text-white font-montserrat text-sm focus:outline-none focus:border-gold transition-colors"
-          style={{ backgroundColor: '#0a0a0a' }}
-        >
-          <option value="" disabled style={{ color: 'rgba(255,255,255,0.3)' }}>
-            Selecione o tamanho
-          </option>
-          <option value="Até 100m²">Até 100m²</option>
-          <option value="De 100m² a 500m²">De 100m² a 500m²</option>
-          <option value="Acima de 500m²">Acima de 500m²</option>
-        </select>
-      </div>
-
+          <p className="font-montserrat text-white/85 text-sm leading-relaxed">
+            Este canal é exclusivo para orçamentos de obras. Para vagas, envie seu currículo para{' '}
+            <a href={`mailto:${CAREERS_EMAIL}?subject=Currículo`} className="text-gold font-semibold break-all">
+              {CAREERS_EMAIL}
+            </a>{' '}
+            com o assunto <strong className="text-white">"Currículo"</strong>.
+          </p>
+        </div>
+      ) : (
+      <>
       {/* Investimento */}
       <div>
         <label className="font-montserrat text-white/70 text-xs uppercase tracking-wider block mb-1.5 font-medium">
@@ -302,6 +253,8 @@ const LeadForm: React.FC<LeadFormProps> = ({
         <Send size={18} />
         {buttonText}
       </button>
+      </>
+      )}
     </form>
   );
 };

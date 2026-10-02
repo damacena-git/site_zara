@@ -46,6 +46,16 @@ const Footer: React.FC = () => {
                 <MapPin size={14} style={{ color: '#DDAD46' }} />
                 Curitiba — PR, Brasil
               </div>
+              <p className="font-montserrat text-white/45 text-xs mt-3 max-w-sm leading-relaxed">
+                <span className="text-white/70 font-semibold">Trabalhe conosco:</span> envie seu currículo para{' '}
+                <a
+                  href="mailto:contato@zaraengenharia.com.br?subject=Currículo"
+                  className="hover:text-gold transition-colors underline"
+                >
+                  contato@zaraengenharia.com.br
+                </a>{' '}
+                com o assunto "Currículo". Não recebemos currículos pelo WhatsApp.
+              </p>
             </div>
           </div>
 

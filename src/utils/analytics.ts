@@ -1,12 +1,9 @@
 export type LeadData = {
   name: string;
-  company?: string;
   phone: string;
   email?: string;
   workType: string;
   otherWorkSpec?: string;
-  hasProject: string;
-  size: string;
   budget: string;
   message?: string;
   formLocation: 'popup' | 'contato_section' | 'landing_page';
@@ -37,10 +34,7 @@ export const trackLeadConversion = (lead: LeadData) => {
       page_path: window.location.pathname,
       page_title: document.title,
       lead_work_type: lead.workType,
-      lead_has_project: lead.hasProject,
-      lead_size: lead.size,
       lead_budget: lead.budget,
-      lead_has_company: !!lead.company,
     });
 
     // 2. Evento personalizado padrão para acionadores do GTM
