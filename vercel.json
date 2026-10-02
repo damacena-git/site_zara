@@ -1,0 +1,14 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/construcao-e-reforma", "destination": "/construcao-e-reforma/index.html" },
+    { "source": "/construcao-e-reforma/", "destination": "/construcao-e-reforma/index.html" },
+    { "source": "/reforma-residencial-curitiba", "destination": "/reforma-residencial-curitiba/index.html" },
+    { "source": "/reforma-residencial-curitiba/", "destination": "/reforma-residencial-curitiba/index.html" },
+    { "source": "/construtora-curitiba", "destination": "/construtora-curitiba/index.html" },
+    { "source": "/construtora-curitiba/", "destination": "/construtora-curitiba/index.html" },
+    { "source": "/orcamento-construcao-civil", "destination": "/orcamento-construcao-civil/index.html" },
+    { "source": "/orcamento-construcao-civil/", "destination": "/orcamento-construcao-civil/index.html" }
+  ]
+}
