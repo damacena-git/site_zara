@@ -1,13 +1,12 @@
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import LeadForm from './LeadForm';
-
-const WHATSAPP_NUMBER = '5541984211610';
-const WHATSAPP_MESSAGE = encodeURIComponent(
-  'Olá! Vim pelo site e gostaria de agendar uma Triagem Técnica com a Zara Engenharia.'
-);
+import { useWhatsApp } from './WhatsAppContext';
+import { buildWhatsAppUrl, trackWhatsAppClick } from '../utils/whatsapp';
 
 const ContatoSection: React.FC = () => {
+  const { message } = useWhatsApp();
+
   return (
     <section id="contato" className="py-12 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#000000' }}>
       <div className="max-w-5xl mx-auto">
@@ -41,9 +40,10 @@ const ContatoSection: React.FC = () => {
               </h3>
               <div className="flex flex-col gap-5">
                 <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
+                  href={buildWhatsAppUrl(message)}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick('contato', message)}
                   className="flex items-start gap-4 group"
                 >
                   <div

@@ -1,6 +1,6 @@
 import React from 'react';
 import { XCircle, CheckCircle2 } from 'lucide-react';
-import { useFormPopup } from './FormPopupContext';
+import { useWhatsApp } from './WhatsAppContext';
 
 type Variant = 'comercial' | 'residencial';
 
@@ -39,7 +39,7 @@ const goodPoints: Record<Variant, string[]> = {
 };
 
 const ComparacaoSection: React.FC<{ variant?: Variant }> = ({ variant = 'comercial' }) => {
-  const { openPopup } = useFormPopup();
+  const { openWhatsApp } = useWhatsApp();
 
   return (
     <section id="comparacao" className="py-12 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#F8F9FA' }}>
@@ -111,7 +111,7 @@ const ComparacaoSection: React.FC<{ variant?: Variant }> = ({ variant = 'comerci
             A diferença não está no preço. Está em quem vai pagar o preço da irresponsabilidade.
           </p>
           <button
-            onClick={openPopup}
+            onClick={() => openWhatsApp('comparacao')}
             className="btn-gold text-white font-roboto font-bold text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-5 rounded-sm uppercase tracking-wider"
           >
             Quero o Padrão Zara no Meu Projeto

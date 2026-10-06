@@ -10,9 +10,8 @@ import GarantiaSection from '../components/GarantiaSection';
 import FAQSection from '../components/FAQSection';
 import ContatoSection from '../components/ContatoSection';
 import Footer from '../components/Footer';
-import FormPopup from '../components/FormPopup';
 import WhatsAppFloat from '../components/WhatsAppFloat';
-import { FormPopupProvider } from '../components/FormPopupContext';
+import { WhatsAppProvider } from '../components/WhatsAppContext';
 import {
   Store,
   Stethoscope,
@@ -430,14 +429,13 @@ const ObrasComerciaisPage: React.FC = () => {
   const content = SEGMENTS[segment];
 
   return (
-    <FormPopupProvider>
+    <WhatsAppProvider message={content.whatsappMessage}>
       <div className="min-h-screen" style={{ backgroundColor: '#000000' }}>
         <Navbar />
 
         <LandingHero
           config={{
             ...content.hero,
-            whatsappMessage: content.whatsappMessage,
             videoSrc:
               'https://videos.pexels.com/video-files/8964731/8964731-uhd_3840_2160_25fps.mp4',
           }}
@@ -453,10 +451,9 @@ const ObrasComerciaisPage: React.FC = () => {
         <FAQSection />
         <ContatoSection />
         <Footer />
-        <WhatsAppFloat message={content.whatsappMessage} />
-        <FormPopup />
+        <WhatsAppFloat />
       </div>
-    </FormPopupProvider>
+    </WhatsAppProvider>
   );
 };
 

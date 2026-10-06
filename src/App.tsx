@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import HeroSection, { HOME_WHATSAPP_MESSAGE } from './components/HeroSection';
+import HeroSection from './components/HeroSection';
 import DorasSection from './components/DorasSection';
 import SolucaoSection from './components/SolucaoSection';
 import MetodologiaSection from './components/MetodologiaSection';
@@ -11,13 +11,15 @@ import GarantiaSection from './components/GarantiaSection';
 import FAQSection from './components/FAQSection';
 import ContatoSection from './components/ContatoSection';
 import Footer from './components/Footer';
-import FormPopup from './components/FormPopup';
-import { FormPopupProvider } from './components/FormPopupContext';
+import { WhatsAppProvider } from './components/WhatsAppContext';
 import WhatsAppFloat from './components/WhatsAppFloat';
+
+const HOME_WHATSAPP_MESSAGE =
+  'Olá! Gostaria de realizar um orçamento para uma obra comercial ou corporativa.';
 
 const App: React.FC = () => {
   return (
-    <FormPopupProvider>
+    <WhatsAppProvider message={HOME_WHATSAPP_MESSAGE}>
       <div className="min-h-screen" style={{ backgroundColor: '#000000' }}>
         {/* Sticky Navigation */}
         <Navbar />
@@ -55,13 +57,10 @@ const App: React.FC = () => {
         {/* Footer */}
         <Footer />
 
-        {/* WhatsApp Floating Button que abre o FormPopup */}
-        <WhatsAppFloat message={HOME_WHATSAPP_MESSAGE} />
-
-        {/* Popup de Formulário Rápido */}
-        <FormPopup />
+        {/* Botão flutuante do WhatsApp */}
+        <WhatsAppFloat />
       </div>
-    </FormPopupProvider>
+    </WhatsAppProvider>
   );
 };
 

@@ -9,22 +9,20 @@ import GarantiaSection from '../components/GarantiaSection';
 import FAQSection from '../components/FAQSection';
 import ContatoSection from '../components/ContatoSection';
 import Footer from '../components/Footer';
-import FormPopup from '../components/FormPopup';
 import WhatsAppFloat from '../components/WhatsAppFloat';
-import { FormPopupProvider } from '../components/FormPopupContext';
+import { WhatsAppProvider } from '../components/WhatsAppContext';
 import { Building, MapPin, Award } from 'lucide-react';
 
 const WHATSAPP_MESSAGE = 'Olá! Gostaria de realizar um orçamento com a construtora para a minha obra em Curitiba.';
 
 const ConstrutoraCuritibaPage: React.FC = () => {
   return (
-    <FormPopupProvider>
+    <WhatsAppProvider message={WHATSAPP_MESSAGE}>
       <div className="min-h-screen" style={{ backgroundColor: '#000000' }}>
         <Navbar />
 
         <LandingHero
           config={{
-            whatsappMessage: WHATSAPP_MESSAGE,
             tagline: 'Construtora e Empresa de Engenharia Civil em Curitiba',
             headline: (
               <>
@@ -99,10 +97,9 @@ const ConstrutoraCuritibaPage: React.FC = () => {
         <FAQSection />
         <ContatoSection />
         <Footer />
-        <WhatsAppFloat message={WHATSAPP_MESSAGE} />
-        <FormPopup />
+        <WhatsAppFloat />
       </div>
-    </FormPopupProvider>
+    </WhatsAppProvider>
   );
 };
 

@@ -10,7 +10,7 @@ export const buildWhatsAppUrl = (message: string = DEFAULT_WHATSAPP_MESSAGE) =>
  * Registra o clique no WhatsApp no dataLayer.
  * Evento separado de `generate_lead`: clique no WhatsApp não é lead qualificado.
  */
-export const trackWhatsAppClick = (location: 'hero' | 'float', message: string) => {
+export const trackWhatsAppClick = (location: string, message: string) => {
   try {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({

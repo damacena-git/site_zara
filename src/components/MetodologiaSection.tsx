@@ -1,6 +1,6 @@
 import React from 'react';
 import { Bookmark, TrendingUp, CheckCircle } from 'lucide-react';
-import { useFormPopup } from './FormPopupContext';
+import { useWhatsApp } from './WhatsAppContext';
 
 const steps = [
   {
@@ -24,7 +24,7 @@ const steps = [
 ];
 
 const MetodologiaSection: React.FC = () => {
-  const { openPopup } = useFormPopup();
+  const { openWhatsApp } = useWhatsApp();
 
   return (
     <section id="metodologia" className="py-12 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#343A40' }}>
@@ -93,7 +93,7 @@ const MetodologiaSection: React.FC = () => {
         {/* CTA Button */}
         <div className="text-center">
           <button
-            onClick={openPopup}
+            onClick={() => openWhatsApp('metodologia')}
             className="btn-gold text-white font-roboto font-bold text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-5 rounded-sm uppercase tracking-wider inline-block"
           >
             Quero Blindar Meu Projeto com a Zara

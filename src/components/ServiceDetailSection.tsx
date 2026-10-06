@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFormPopup } from './FormPopupContext';
+import { useWhatsApp } from './WhatsAppContext';
 import { LucideIcon } from 'lucide-react';
 
 export type ServiceHighlight = {
@@ -18,7 +18,7 @@ export type ServiceDetailConfig = {
 };
 
 const ServiceDetailSection: React.FC<{ config: ServiceDetailConfig }> = ({ config }) => {
-  const { openPopup } = useFormPopup();
+  const { openWhatsApp } = useWhatsApp();
 
   return (
     <section className="py-12 sm:py-24 px-5 sm:px-6" style={{ backgroundColor: '#000000' }}>
@@ -76,7 +76,7 @@ const ServiceDetailSection: React.FC<{ config: ServiceDetailConfig }> = ({ confi
         {/* CTA */}
         <div className="text-center">
           <button
-            onClick={openPopup}
+            onClick={() => openWhatsApp('servico')}
             className="btn-gold text-white font-roboto font-bold text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-5 rounded-sm uppercase tracking-wider"
           >
             {config.ctaText || 'Solicitar Orçamento Gratuito'}

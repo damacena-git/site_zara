@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { buildWhatsAppUrl, trackWhatsAppClick, DEFAULT_WHATSAPP_MESSAGE } from '../utils/whatsapp';
+import { buildWhatsAppUrl, trackWhatsAppClick } from '../utils/whatsapp';
+import { useWhatsApp } from './WhatsAppContext';
 
-const WhatsAppFloat: React.FC<{ message?: string }> = ({ message = DEFAULT_WHATSAPP_MESSAGE }) => {
+const WhatsAppFloat: React.FC = () => {
+  const { message } = useWhatsApp();
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (

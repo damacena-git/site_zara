@@ -1,6 +1,7 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
-import { buildWhatsAppUrl, trackWhatsAppClick, DEFAULT_WHATSAPP_MESSAGE } from '../utils/whatsapp';
+import { buildWhatsAppUrl, trackWhatsAppClick } from '../utils/whatsapp';
+import { useWhatsApp } from './WhatsAppContext';
 
 export type LandingHeroConfig = {
   tagline: string;
@@ -12,12 +13,10 @@ export type LandingHeroConfig = {
   videoPoster?: string;
   /** Override background with a static image instead of video */
   backgroundImage?: string;
-  /** Mensagem pré-preenchida do WhatsApp no botão principal */
-  whatsappMessage?: string;
 };
 
 const LandingHero: React.FC<{ config: LandingHeroConfig }> = ({ config }) => {
-  const whatsappMessage = config.whatsappMessage || DEFAULT_WHATSAPP_MESSAGE;
+  const { message: whatsappMessage } = useWhatsApp();
 
   return (
     <section

@@ -1,7 +1,11 @@
 import React from 'react';
 import { MapPin, Mail, Phone } from 'lucide-react';
+import { useWhatsApp } from './WhatsAppContext';
+import { buildWhatsAppUrl, trackWhatsAppClick } from '../utils/whatsapp';
 
 const Footer: React.FC = () => {
+  const { message } = useWhatsApp();
+
   return (
     <footer style={{ backgroundColor: '#343A40' }}>
       <div className="max-w-6xl mx-auto px-6 py-14">
@@ -27,9 +31,10 @@ const Footer: React.FC = () => {
             {/* Contact info */}
             <div className="flex flex-col gap-2 mt-2">
               <a
-                href="https://wa.me/5541984211610"
+                href={buildWhatsAppUrl(message)}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick('footer', message)}
                 className="flex items-center gap-2 font-montserrat text-white/60 text-sm hover:text-gold transition-colors"
               >
                 <Phone size={14} style={{ color: '#DDAD46' }} />

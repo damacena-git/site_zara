@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { useFormPopup } from './FormPopupContext';
+import { useWhatsApp } from './WhatsAppContext';
 
 const navLinks = [
   { label: 'A Solução', href: '#solucao' },
@@ -12,7 +12,7 @@ const navLinks = [
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { openPopup } = useFormPopup();
+  const { openWhatsApp } = useWhatsApp();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   const handleCTA = () => {
-    openPopup();
+    openWhatsApp('navbar');
     setMenuOpen(false);
   };
 

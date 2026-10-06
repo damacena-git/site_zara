@@ -1,11 +1,11 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
 import { buildWhatsAppUrl, trackWhatsAppClick } from '../utils/whatsapp';
-
-export const HOME_WHATSAPP_MESSAGE =
-  'Olá! Gostaria de realizar um orçamento para uma obra comercial ou corporativa.';
+import { useWhatsApp } from './WhatsAppContext';
 
 const HeroSection: React.FC = () => {
+  const { message } = useWhatsApp();
+
   return (
     <section
       id="hero"
@@ -67,10 +67,10 @@ const HeroSection: React.FC = () => {
         {/* CTA Button */}
         <div className="flex flex-col items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
           <a
-            href={buildWhatsAppUrl(HOME_WHATSAPP_MESSAGE)}
+            href={buildWhatsAppUrl(message)}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick('hero', HOME_WHATSAPP_MESSAGE)}
+            onClick={() => trackWhatsAppClick('hero', message)}
             className="btn-gold text-white font-roboto font-bold text-xs sm:text-base px-6 sm:px-10 py-3.5 sm:py-5 rounded-sm uppercase tracking-wider shadow-2xl pulse-gold w-full sm:w-auto cursor-pointer text-center"
             style={{ maxWidth: '360px' }}
           >

@@ -9,22 +9,20 @@ import GarantiaSection from '../components/GarantiaSection';
 import FAQSection from '../components/FAQSection';
 import ContatoSection from '../components/ContatoSection';
 import Footer from '../components/Footer';
-import FormPopup from '../components/FormPopup';
 import WhatsAppFloat from '../components/WhatsAppFloat';
-import { FormPopupProvider } from '../components/FormPopupContext';
+import { WhatsAppProvider } from '../components/WhatsAppContext';
 import { Home, Paintbrush, ShieldCheck } from 'lucide-react';
 
 const WHATSAPP_MESSAGE = 'Olá! Gostaria de realizar um orçamento para uma reforma residencial de alto padrão.';
 
 const ReformaResidencialPage: React.FC = () => {
   return (
-    <FormPopupProvider>
+    <WhatsAppProvider message={WHATSAPP_MESSAGE}>
       <div className="min-h-screen" style={{ backgroundColor: '#000000' }}>
         <Navbar />
 
         <LandingHero
           config={{
-            whatsappMessage: WHATSAPP_MESSAGE,
             tagline: 'Reforma Residencial em Curitiba',
             headline: (
               <>
@@ -100,10 +98,9 @@ const ReformaResidencialPage: React.FC = () => {
         <FAQSection />
         <ContatoSection />
         <Footer />
-        <WhatsAppFloat message={WHATSAPP_MESSAGE} />
-        <FormPopup />
+        <WhatsAppFloat />
       </div>
-    </FormPopupProvider>
+    </WhatsAppProvider>
   );
 };
 
