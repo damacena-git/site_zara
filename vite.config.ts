@@ -25,6 +25,7 @@ export default defineConfig({
         "reforma-residencial-curitiba": path.resolve(__dirname, "reforma-residencial-curitiba/index.html"),
         "construtora-curitiba": path.resolve(__dirname, "construtora-curitiba/index.html"),
         "orcamento-construcao-civil": path.resolve(__dirname, "orcamento-construcao-civil/index.html"),
+        "obras-comerciais": path.resolve(__dirname, "obras-comerciais/index.html"),
       },
     },
   },

@@ -9,6 +9,8 @@
     { "source": "/construtora-curitiba", "destination": "/construtora-curitiba/index.html" },
     { "source": "/construtora-curitiba/", "destination": "/construtora-curitiba/index.html" },
     { "source": "/orcamento-construcao-civil", "destination": "/orcamento-construcao-civil/index.html" },
-    { "source": "/orcamento-construcao-civil/", "destination": "/orcamento-construcao-civil/index.html" }
+    { "source": "/orcamento-construcao-civil/", "destination": "/orcamento-construcao-civil/index.html" },
+    { "source": "/obras-comerciais", "destination": "/obras-comerciais/index.html" },
+    { "source": "/obras-comerciais/", "destination": "/obras-comerciais/index.html" }
   ]
 }
