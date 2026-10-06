@@ -14,6 +14,8 @@ import WhatsAppFloat from '../components/WhatsAppFloat';
 import { FormPopupProvider } from '../components/FormPopupContext';
 import { Building2, Wrench, CalendarCheck } from 'lucide-react';
 
+const WHATSAPP_MESSAGE = 'Olá! Gostaria de realizar um orçamento para uma obra de construção ou reforma.';
+
 const ConstrucaoReformaPage: React.FC = () => {
   return (
     <FormPopupProvider>
@@ -22,6 +24,7 @@ const ConstrucaoReformaPage: React.FC = () => {
 
         <LandingHero
           config={{
+            whatsappMessage: WHATSAPP_MESSAGE,
             tagline: 'Empresa de Construção e Reforma em Curitiba',
             headline: (
               <>
@@ -95,7 +98,7 @@ const ConstrucaoReformaPage: React.FC = () => {
         <FAQSection />
         <ContatoSection />
         <Footer />
-        <WhatsAppFloat />
+        <WhatsAppFloat message={WHATSAPP_MESSAGE} />
         <FormPopup />
       </div>
     </FormPopupProvider>

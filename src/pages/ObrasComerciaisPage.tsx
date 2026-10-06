@@ -33,6 +33,7 @@ type Segment = 'geral' | 'lojas' | 'clinicas' | 'escritorios' | 'industrial' | '
 
 type SegmentContent = {
   label: string;
+  whatsappMessage: string;
   hero: LandingHeroConfig;
   detail: ServiceDetailConfig;
 };
@@ -42,6 +43,7 @@ const MIN_TICKET = 'Obras a partir de R$ 50 mil em Curitiba e Região Metropolit
 const SEGMENTS: Record<Segment, SegmentContent> = {
   geral: {
     label: 'Todos',
+    whatsappMessage: 'Olá! Gostaria de realizar um orçamento para uma obra comercial.',
     hero: {
       tagline: 'Obras e Reformas Comerciais em Curitiba',
       headline: (
@@ -99,6 +101,7 @@ const SEGMENTS: Record<Segment, SegmentContent> = {
   },
   lojas: {
     label: 'Lojas e Franquias',
+    whatsappMessage: 'Olá! Gostaria de realizar um orçamento para a reforma de uma loja.',
     hero: {
       tagline: 'Reforma e Montagem de Lojas em Curitiba',
       headline: (
@@ -154,6 +157,7 @@ const SEGMENTS: Record<Segment, SegmentContent> = {
   },
   clinicas: {
     label: 'Clínicas e Consultórios',
+    whatsappMessage: 'Olá! Gostaria de realizar um orçamento para a obra de uma clínica ou consultório.',
     hero: {
       tagline: 'Reforma e Construção de Clínicas em Curitiba',
       headline: (
@@ -210,6 +214,7 @@ const SEGMENTS: Record<Segment, SegmentContent> = {
   },
   escritorios: {
     label: 'Escritórios Corporativos',
+    whatsappMessage: 'Olá! Gostaria de realizar um orçamento para a reforma de um escritório corporativo.',
     hero: {
       tagline: 'Reforma de Escritórios e Obras Corporativas em Curitiba',
       headline: (
@@ -265,6 +270,7 @@ const SEGMENTS: Record<Segment, SegmentContent> = {
   },
   industrial: {
     label: 'Galpões e Indústria',
+    whatsappMessage: 'Olá! Gostaria de realizar um orçamento para uma obra de galpão ou industrial.',
     hero: {
       tagline: 'Construção de Galpões e Obras Industriais em Curitiba',
       headline: (
@@ -319,6 +325,7 @@ const SEGMENTS: Record<Segment, SegmentContent> = {
   },
   restaurantes: {
     label: 'Restaurantes',
+    whatsappMessage: 'Olá! Gostaria de realizar um orçamento para a reforma de um restaurante.',
     hero: {
       tagline: 'Reforma e Montagem de Restaurantes em Curitiba',
       headline: (
@@ -430,6 +437,7 @@ const ObrasComerciaisPage: React.FC = () => {
         <LandingHero
           config={{
             ...content.hero,
+            whatsappMessage: content.whatsappMessage,
             videoSrc:
               'https://videos.pexels.com/video-files/8964731/8964731-uhd_3840_2160_25fps.mp4',
           }}
@@ -445,7 +453,7 @@ const ObrasComerciaisPage: React.FC = () => {
         <FAQSection />
         <ContatoSection />
         <Footer />
-        <WhatsAppFloat />
+        <WhatsAppFloat message={content.whatsappMessage} />
         <FormPopup />
       </div>
     </FormPopupProvider>

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useFormPopup } from './FormPopupContext';
+import { buildWhatsAppUrl, trackWhatsAppClick, DEFAULT_WHATSAPP_MESSAGE } from '../utils/whatsapp';
 
-const WhatsAppFloat: React.FC = () => {
-  const { openPopup } = useFormPopup();
+const WhatsAppFloat: React.FC<{ message?: string }> = ({ message = DEFAULT_WHATSAPP_MESSAGE }) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (
@@ -20,13 +19,15 @@ const WhatsAppFloat: React.FC = () => {
         Solicitar Orçamento
       </span>
 
-      <button
-        onClick={openPopup}
+      <a
+        href={buildWhatsAppUrl(message)}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackWhatsAppClick('float', message)}
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
         className="whatsapp-float cursor-pointer relative"
         aria-label="Solicitar Orçamento via WhatsApp"
-        type="button"
       >
         {/* WhatsApp SVG Icon */}
         <svg
@@ -44,7 +45,7 @@ const WhatsAppFloat: React.FC = () => {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-4 w-4 bg-[#DDAD46] border-2 border-black"></span>
         </span>
-      </button>
+      </a>
     </div>
   );
 };

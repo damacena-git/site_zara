@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
+import HeroSection, { HOME_WHATSAPP_MESSAGE } from './components/HeroSection';
 import DorasSection from './components/DorasSection';
 import SolucaoSection from './components/SolucaoSection';
 import MetodologiaSection from './components/MetodologiaSection';
@@ -56,7 +56,7 @@ const App: React.FC = () => {
         <Footer />
 
         {/* WhatsApp Floating Button que abre o FormPopup */}
-        <WhatsAppFloat />
+        <WhatsAppFloat message={HOME_WHATSAPP_MESSAGE} />
 
         {/* Popup de Formulário Rápido */}
         <FormPopup />

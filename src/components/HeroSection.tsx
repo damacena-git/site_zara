@@ -1,10 +1,11 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
-import { useFormPopup } from './FormPopupContext';
+import { buildWhatsAppUrl, trackWhatsAppClick } from '../utils/whatsapp';
+
+export const HOME_WHATSAPP_MESSAGE =
+  'Olá! Gostaria de realizar um orçamento para uma obra comercial ou corporativa.';
 
 const HeroSection: React.FC = () => {
-  const { openPopup } = useFormPopup();
-
   return (
     <section
       id="hero"
@@ -65,13 +66,16 @@ const HeroSection: React.FC = () => {
 
         {/* CTA Button */}
         <div className="flex flex-col items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
-          <button
-            onClick={openPopup}
-            className="btn-gold text-white font-roboto font-bold text-xs sm:text-base px-6 sm:px-10 py-3.5 sm:py-5 rounded-sm uppercase tracking-wider shadow-2xl pulse-gold w-full sm:w-auto cursor-pointer"
+          <a
+            href={buildWhatsAppUrl(HOME_WHATSAPP_MESSAGE)}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick('hero', HOME_WHATSAPP_MESSAGE)}
+            className="btn-gold text-white font-roboto font-bold text-xs sm:text-base px-6 sm:px-10 py-3.5 sm:py-5 rounded-sm uppercase tracking-wider shadow-2xl pulse-gold w-full sm:w-auto cursor-pointer text-center"
             style={{ maxWidth: '360px' }}
           >
             Solicitar Orçamento Gratuito
-          </button>
+          </a>
           <span className="font-montserrat text-white/60 text-[11px] sm:text-xs italic">
             Obras a partir de R$ 50 mil — projetos corporativos, industriais e residenciais de alto padrão.
           </span>

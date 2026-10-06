@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
-import { useFormPopup } from './FormPopupContext';
+import { buildWhatsAppUrl, trackWhatsAppClick, DEFAULT_WHATSAPP_MESSAGE } from '../utils/whatsapp';
 
 export type LandingHeroConfig = {
   tagline: string;
@@ -12,10 +12,12 @@ export type LandingHeroConfig = {
   videoPoster?: string;
   /** Override background with a static image instead of video */
   backgroundImage?: string;
+  /** Mensagem pré-preenchida do WhatsApp no botão principal */
+  whatsappMessage?: string;
 };
 
 const LandingHero: React.FC<{ config: LandingHeroConfig }> = ({ config }) => {
-  const { openPopup } = useFormPopup();
+  const whatsappMessage = config.whatsappMessage || DEFAULT_WHATSAPP_MESSAGE;
 
   return (
     <section
@@ -76,13 +78,16 @@ const LandingHero: React.FC<{ config: LandingHeroConfig }> = ({ config }) => {
 
         {/* CTA Button */}
         <div className="flex flex-col items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
-          <button
-            onClick={openPopup}
-            className="btn-gold text-white font-roboto font-bold text-xs sm:text-base px-6 sm:px-10 py-3.5 sm:py-5 rounded-sm uppercase tracking-wider shadow-2xl pulse-gold w-full sm:w-auto cursor-pointer"
+          <a
+            href={buildWhatsAppUrl(whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick('hero', whatsappMessage)}
+            className="btn-gold text-white font-roboto font-bold text-xs sm:text-base px-6 sm:px-10 py-3.5 sm:py-5 rounded-sm uppercase tracking-wider shadow-2xl pulse-gold w-full sm:w-auto cursor-pointer text-center"
             style={{ maxWidth: '360px' }}
           >
             {config.ctaText}
-          </button>
+          </a>
           {config.ctaSubtext && (
             <span className="font-montserrat text-white/60 text-[11px] sm:text-xs italic">
               {config.ctaSubtext}
