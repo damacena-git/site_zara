@@ -55,7 +55,7 @@ const ContatoSection: React.FC = () => {
                   <div>
                     <p className="font-montserrat text-white/50 text-xs uppercase tracking-wider mb-1">WhatsApp</p>
                     <p className="font-roboto font-bold text-white text-sm group-hover:text-gold transition-colors">
-                      (41) 98421-1610
+                      (41) 98521-1610
                     </p>
                   </div>
                 </a>

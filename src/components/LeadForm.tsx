@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Send, CheckCircle2 } from 'lucide-react';
 import { trackLeadConversion, trackDisqualifiedLead } from '../utils/analytics';
 
-const WHATSAPP_NUMBER = '5541984211610';
+import { WHATSAPP_NUMBER } from '../utils/whatsapp';
+
 const CAREERS_EMAIL = 'contato@zaraengenharia.com.br';
 const JOB_SEEKER_OPTION = 'Procuro emprego / enviar currículo';
 const BELOW_MINIMUM_OPTION = 'Abaixo de R$ 50 mil';

@@ -1,4 +1,4 @@
-export const WHATSAPP_NUMBER = '5541984211610';
+export const WHATSAPP_NUMBER = '5541985211610';
 
 export const DEFAULT_WHATSAPP_MESSAGE =
   'Olá! Vim pelo site da Zara Engenharia e gostaria de realizar um orçamento para uma obra.';

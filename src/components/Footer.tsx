@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
                 className="flex items-center gap-2 font-montserrat text-white/60 text-sm hover:text-gold transition-colors"
               >
                 <Phone size={14} style={{ color: '#DDAD46' }} />
-                (41) 98421-1610
+                (41) 98521-1610
               </a>
               <a
                 href="mailto:contato@zaraengenharia.com.br"
